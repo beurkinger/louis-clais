@@ -1,0 +1,68 @@
+.gallery {
+    position: relative;
+    width: 100%;
+}
+
+.gallery-multiple {
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+}
+
+.gallery .gallery-multiple-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-single-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.gallery .gallery-icons {
+    position: absolute;
+    bottom: 0rem;
+    right: 0rem;
+    display: flex;
+    flex-direction:row-reverse;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 100%;
+    height: 3.9rem;
+}
+
+.gallery .gallery-counter,
+.gallery .gallery-extend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    height: 100%;
+    background: #FFF;
+    font-weight: 500;
+}
+
+.gallery .gallery-counter {
+    padding: 0.2rem 0.5rem 0;
+}
+
+.gallery .gallery-extend {
+    display: block;
+    padding: 0.25rem;
+}
+
+.gallery .gallery-extend:hover {
+    background: black;
+    fill: white;
+}
+
+.gallery .icon-extend {
+    width: auto;
+    height: 100%;
+    
+}

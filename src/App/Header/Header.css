@@ -1,0 +1,25 @@
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 22.5rem;
+    padding: 3rem 0rem 2.5rem 4rem;
+}
+
+.site-header-title {
+    margin-bottom: 1.1rem;
+}
+
+.site-header-presentation {
+    margin-bottom: 0.62rem;
+}
+
+@media 
+/* screen and (max-width: 768px),
+screen and (max-device-width : 1024px) and (orientation : portrait) { */
+    screen and (max-width: 768px) {
+    .site-header {
+        position: static;
+        padding: 2.5rem;
+    }
+}

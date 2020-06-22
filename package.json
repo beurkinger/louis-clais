@@ -1,0 +1,45 @@
+{
+  "name": "louisclais",
+  "version": "1.0.0",
+  "description": "Front-end code for artiste Louis Clais' website.",
+  "main": "index.html",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
+    "start": "webpack-dev-server --mode development --open",
+    "type-check": "tsc --noEmit --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beurkinger/louis-clais.git"
+  },
+  "keywords": [
+    "javascript",
+    "html5",
+    "css3",
+    "typescript",
+    "webpack",
+    "preact"
+  ],
+  "author": "Thibault Goehringer",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/beurkinger/louis-clais/issues"
+  },
+  "homepage": "https://github.com/beurkinger/louis-clais#readme",
+  "dependencies": {
+    "preact": "^10.0.1"
+  },
+  "devDependencies": {
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.9.5",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
+  }
+}

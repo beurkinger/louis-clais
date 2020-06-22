@@ -1,0 +1,48 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
+
+module.exports = {
+  resolve: {
+    // Add '.ts' and '.tsx' as resolvable extensions.
+    extensions: [".js", ".jsx", ".ts", ".tsx"]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts(x?)$/,
+        exclude: /node_modules/,
+        use: [{ loader: 'ts-loader' }]
+      },
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+      },
+      {
+        test: /\.css$/,
+        use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader']
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg|png|jpg|svg)$/,
+        use: [{ 
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'assets/',
+          }
+         }]
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: __dirname + '/src/index.html',
+      title: 'Preact Boilerplate'
+    }),
+    new MiniCssExtractPlugin()
+  ],
+  devServer: {
+    contentBase: path.join(__dirname, 'public')
+  }
+};
