@@ -26,11 +26,11 @@ class Header extends Component<{}, State> {
     render() {
         const { intro } = this.state;
         return (
-            <header className="site-header">
-                <h2 className="site-header-title">
+            <header className="header">
+                <h2 className="header-title">
                     Louis Clais
                 </h2>
-                <p className="site-header-presentation">
+                <p className="header-presentation">
                     { intro }
                 </p>
                 <Downloads/>

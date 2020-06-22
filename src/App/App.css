@@ -1,55 +1,61 @@
-@font-face {
-    font-family: "Helvetica-Neue-Web";
-    src: url("../fonts/HelveticaNeue-Thin.woff2") format("woff2");
-    font-weight: 300;
+.app {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
 }
 
-@font-face {
-    font-family: "Helvetica-Neue-Web";
-    src: url("../fonts/HelveticaNeue-Medium.woff2") format("woff2");
-    font-weight: 500;
+.app-left-column {
+    flex: 0 0 22.5rem;
+    padding: 3rem 0rem 2.5rem 4rem;
+}
+.app-left-column-content {
+    max-width: 40rem;
 }
 
-@font-face {
-    font-family: "Helvetica-Neue-Web";
-    src: url("../fonts/HelveticaNeue-Bold.woff2") format("woff2");
-    font-weight: 700;
+.app-right-column {
+    flex: 1;
+    padding: 3rem 2.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-html {
-    font-size: 16px;
+.app-right-column-content {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 42rem;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@media 
+screen and (max-width: 768px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .app-left-column {
+        flex: 0 0 auto;
+        padding: 2.5rem;
+    }
+
+    .app-right-column {
+        flex: 0 0 auto;
+        padding: 0 2.5rem;
+    }
+
+    .app-right-column-content {
+        margin: 0;
+        width: 100%;
+        max-width: initial;
+    }
 }
 
-body {
-    font-family: Helvetica-Neue-Web, "Helvetica Neue", "Helvetica", Arial, sans-serif;
-    font-weight: 500;
-    line-height: 1.3;
-    font-size: 1rem;
-}
+@media
+screen and (max-width: 540px) {
+    .app-left-column {
+        padding: 2.5rem 1rem;
+    }
 
-h1, h2, h3, h4, h5, h6 { font-weight: 700; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
-h4 { font-size: 1.1rem; }
-h5 { font-size: 1rem; }
-h6 { font-size: 0.85rem; }
-
-p {
-    margin: 0.5rem 0;
-}
-
-a {
-    font-weight: 500;
-    color: #000;
-}
-
-a:hover {
-    color: #888;
+    .app-right-column {
+        padding: 0 1rem;
+    }
 }

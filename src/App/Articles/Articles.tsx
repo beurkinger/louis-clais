@@ -2,7 +2,6 @@ import { h, Component } from 'preact';
 import config from '../../config';
 import { loadJson } from '../../utils/jsonLoader';
 import Article from './Article/Article';
-import './Main.css';
 
 interface State {
     articles: Array<{
@@ -15,7 +14,7 @@ interface State {
     isLoading: boolean;
 }
 
-class Main extends Component<{}, State> {
+class Articles extends Component<{}, State> {
     state: State = { articles: [], error: '', isError: false, isLoading: true };
 
     componentDidMount() {
@@ -36,16 +35,14 @@ class Main extends Component<{}, State> {
     render() {
         const { articles, error, isError, isLoading } = this.state;
         return (
-            <main className="site-main">
-                <div className="site-main-articles">
-                    {!isLoading && !isError && articles.map(article => (
-                        <Article {...article} />
-                    ))}
-                    {isError && error}
-                </div>
-            </main>
+            <div className="articles">
+                {!isLoading && !isError && articles.map(article => (
+                    <Article {...article} />
+                ))}
+                {isError && error}
+            </div>
         );
     }
 }
 
-export default Main;
+export default Articles;

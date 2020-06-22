@@ -14,13 +14,12 @@ const Article = (props: Props) => {
     const hotStuff = { __html: body };
     return (
         <article class="article" >
-            {/* <div className="article-separator" /> */}
             {gallery.length > 0 && <Gallery images={gallery} />}
-            <div class="article-info" >
-                <h4 class="article-info-header">
+            <div class="article-content" >
+                <h4 class="article-content-header">
                     {title}
                 </h4>
-                <div class="article-info-body" dangerouslySetInnerHTML={hotStuff} />
+                <div class="article-content-body" dangerouslySetInnerHTML={hotStuff} />
             </div>
         </article>
     );
