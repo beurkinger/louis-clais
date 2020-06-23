@@ -1,8 +1,8 @@
 import { h, Component } from 'preact';
 import { debounceWithRequestAnimationFrame } from '../../utils/debounce';
-import './IconArrowTop/IconArrowTop';
+import '../IconArrowTop/IconArrowTop';
 import './BackToTop.css';
-import IconArrowTop from './IconArrowTop/IconArrowTop';
+import IconArrowTop from '../IconArrowTop/IconArrowTop';
 
 const handleOnClick = () => {
     document.body.scrollTop = 0;
