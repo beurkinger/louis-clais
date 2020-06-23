@@ -7,6 +7,7 @@ import Article from '../../components/Article/Article';
 
 interface State {
     articles: Array<{
+        _id: string;
         body: string;
         gallery: Array<{ path: string }>;
         title: string;
@@ -26,6 +27,7 @@ const ArticlesPage: FunctionComponent = () => {
         loadJson(`${config.baseUrl}${config.path.getArticles}`)
             .then((response: any) => {
                 const articles = response?.entries.map((entry: any) => ({
+                    _id: entry._id || '',
                     body: entry.body || '',
                     gallery: entry.gallery || [],
                     title: entry.title || '',

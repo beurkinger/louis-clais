@@ -11,6 +11,7 @@ interface Props {
 
 interface State {
     article: {
+        _id: string,
         body: string;
         gallery: Array<{ path: string }>;
         title: string;
