@@ -1,4 +1,4 @@
-import { h, FunctionalComponent } from 'preact';
+import { h, FunctionComponent } from 'preact';
 import { useState }  from 'preact/hooks';
 import config from '../../config';
 import IconExtend from '../IconExtend/IconExtend';
@@ -12,7 +12,7 @@ interface State {
     currentImgIndex: number
 }
 
-const Gallery: FunctionalComponent<Props> = ({ images }: Props) => {
+const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
     const [currentImgIndex, setCurrentImgIndex] = useState<State['currentImgIndex']>(0);
 
     const handleOnClick = () => {

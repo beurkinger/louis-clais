@@ -20,10 +20,10 @@ const Downloads: FunctionComponent = () => {
     useEffect(() => {
         loadJson(`${config.baseUrl}${config.path.getDownloads}`)
             .then((response: any) => {
-                const downloads = response.entries.map((entry: any) => ({
+                const downloads = response?.entries.map((entry: any) => ({
                     path: entry?.path ?? '',
                     title: entry?.title ?? '',
-                }))
+                })) ?? [];
                 setDownloads(downloads);
                 setIsLoading(false);
             })
