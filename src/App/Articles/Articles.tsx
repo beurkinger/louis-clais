@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import config from '../../config';
 import { loadJson } from '../../utils/jsonLoader';
-import Article from './Article/Article';
+import Article from '../../components/Article/Article';
 
 interface State {
     articles: Array<{

@@ -1,5 +1,5 @@
 import { h, Component } from 'preact';
-import config from '../../../../config';
+import config from '../../config';
 import IconExtend from './IconExtend/IconExtend';
 import './gallery.css';
 

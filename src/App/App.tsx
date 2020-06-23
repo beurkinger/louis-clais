@@ -1,7 +1,7 @@
 import { h } from 'preact';
 import Articles from './Articles/Articles';
-import BackToTop from './BackToTop/BackToTop';
-import Header from './Header/Header';
+import BackToTop from '../components/BackToTop/BackToTop';
+import Header from '../components/Header/Header';
 import './App.css';
 
 const App = () => (

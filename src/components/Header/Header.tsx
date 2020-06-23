@@ -2,7 +2,7 @@ import { h, Component } from 'preact';
 import config from '../../config';
 import { loadJson } from '../../utils/jsonLoader';
 import './Header.css';
-import Downloads from './Downloads/Downloads';
+import Downloads from '../Downloads/Downloads';
 
 interface State {
     intro: '',

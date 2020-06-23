@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
-import config from '../../../config';
-import { loadJson } from '../../../utils/jsonLoader';
+import config from '../../config';
+import { loadJson } from '../../utils/jsonLoader';
 import './Downloads.css';
 
 interface State {
