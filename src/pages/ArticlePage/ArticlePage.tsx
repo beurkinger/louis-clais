@@ -6,7 +6,7 @@ import App from '../../components/App/App';
 import Article from '../../components/Article/Article';
 
 interface Props {
-    articleId: string;
+    articleId?: string;
 }
 
 interface State {

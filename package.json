@@ -28,7 +28,8 @@
   },
   "homepage": "https://github.com/beurkinger/louis-clais#readme",
   "dependencies": {
-    "preact": "^10.4.4"
+    "preact": "^10.4.4",
+    "preact-router": "^3.2.1"
   },
   "devDependencies": {
     "css-loader": "^3.6.0",
