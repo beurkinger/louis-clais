@@ -2,7 +2,8 @@ import { h, FunctionComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import config from '../../config';
 import { loadJson } from '../../utils/jsonLoader';
-import Article from '../Article/Article';
+import App from '../../components/App/App';
+import Article from '../../components/Article/Article';
 
 interface State {
     articles: Array<{
@@ -15,7 +16,7 @@ interface State {
     isLoading: boolean;
 }
 
-const Articles: FunctionComponent = () => {
+const ArticlesPage: FunctionComponent = () => {
     const [articles, setArticles] = useState<State['articles']>([]);
     const [error, setError] = useState<State['error']>('');
     const [isError, setIsError] = useState<State['isError']>(false);
@@ -40,13 +41,16 @@ const Articles: FunctionComponent = () => {
     }, []);
     
     return (
-        <div className="articles">
-            {!isLoading && !isError && articles.map(article => (
-                <Article {...article} />
-            ))}
-            {!isLoading && isError && error}
-        </div>
+        <App>
+            <div>
+                {!isLoading && !isError && articles.map(article => (
+                    <Article {...article} />
+                ))}
+                {!isLoading && isError && error}
+            </div>
+        </App>
     );
 };
 
-export default Articles;
+export default ArticlesPage;
+

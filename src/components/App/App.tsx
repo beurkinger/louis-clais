@@ -1,10 +1,9 @@
 import { h, FunctionComponent } from 'preact';
-import Articles from '../components/Articles/Articles';
-import BackToTop from '../components/BackToTop/BackToTop';
-import Header from '../components/Header/Header';
+import BackToTop from '../BackToTop/BackToTop';
+import Header from '../Header/Header';
 import './App.css';
 
-const App: FunctionComponent = () => (
+const App: FunctionComponent = ({ children }) => (
     <div className="app">
         <div className="app-left-column">
             <div className="app-left-column-content">
@@ -13,7 +12,7 @@ const App: FunctionComponent = () => (
         </div>
         <div className="app-right-column">
             <div className="app-right-column-content">
-                <Articles/>
+                {children}
             </div>
         </div>        
         <BackToTop/> 
