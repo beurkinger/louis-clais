@@ -1,6 +1,6 @@
-import { h } from 'preact';
+import { h, FunctionComponent } from 'preact';
 
-const IconExtend = () => (
+const IconExtend: FunctionComponent = () => (
 <svg 
     className="icon-extend"
     version="1.1" 

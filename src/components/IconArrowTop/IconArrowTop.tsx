@@ -1,6 +1,6 @@
-import { h } from 'preact';
+import { h, FunctionComponent} from 'preact';
 
-const IconArrowTop = () => (
+const IconArrowTop: FunctionComponent = () => (
 <svg 
     className="icon-arrow-top"
     version="1.1" 

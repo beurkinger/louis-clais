@@ -1,4 +1,4 @@
-import { h } from 'preact';
+import { h, FunctionComponent } from 'preact';
 import Gallery from '../Gallery/Gallery';
 import './Article.css';
 
@@ -9,7 +9,7 @@ interface Props {
     title: string;
 }
 
-const Article = (props: Props) => {
+const Article: FunctionComponent<Props> = (props: Props) => {
     const { body, gallery, title } = props;
     const hotStuff = { __html: body };
     return (
