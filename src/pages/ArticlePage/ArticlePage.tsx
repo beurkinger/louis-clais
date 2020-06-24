@@ -4,6 +4,7 @@ import config from '../../config';
 import { loadJson } from '../../utils/jsonLoader';
 import App from '../../components/App/App';
 import Article from '../../components/Article/Article';
+import BackToMain from '../../components/BackToMain/BackToMain';
 
 interface Props {
     articleId?: string;
@@ -44,6 +45,7 @@ const ArticlePage: FunctionComponent<Props> = ({ articleId }: Props) => {
     return (
         <App>
             <div>
+                <BackToMain/>
                 {!isLoading && !isError && article && (
                     <Article {...article} />
                 )}

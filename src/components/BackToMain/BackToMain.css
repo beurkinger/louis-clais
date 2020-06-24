@@ -1,0 +1,8 @@
+.back-to-main {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.back-to-main .icon-arrow-top {
+    transform: rotate(-90deg);
+}
