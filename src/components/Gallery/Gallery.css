@@ -34,6 +34,7 @@
     padding: 1rem;
     width: 100%;
     height: 3.9rem;
+    pointer-events: none;
 }
 
 .gallery .gallery-counter,
