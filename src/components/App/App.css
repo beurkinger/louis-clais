@@ -1,12 +1,13 @@
 .app {
-    display: flex;
-    flex-direction: row;
     width: 100vw;
     height: 100vh;
 }
 
 .app-left-column {
-    flex: 0 0 22.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 22.5rem;;
     padding: 3rem 0rem 2.5rem 4rem;
 }
 .app-left-column-content {
@@ -14,10 +15,8 @@
 }
 
 .app-right-column {
-    flex: 1;
-    padding: 3rem 2.5rem;
-    overflow-x: hidden;
-    overflow-y: auto;
+    width: 100%;
+    padding: 3rem 2.5rem 3rem 25rem;
 }
 
 .app-right-column-content {
@@ -28,17 +27,12 @@
 
 @media 
 screen and (max-width: 768px) {
-    .app {
-        flex-direction: column;
-    }
-
     .app-left-column {
-        flex: 0 0 auto;
+        position: static;
         padding: 2.5rem;
     }
 
     .app-right-column {
-        flex: 0 0 auto;
         padding: 0 2.5rem;
     }
 
