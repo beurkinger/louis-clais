@@ -10,12 +10,17 @@
     box-shadow: 0.15rem 0.15rem 0.0625rem 0px #000;
 }
 
-.arrow-button:hover {
-    border-color: #888;
-    color: #888;
-}
-
 .arrow-button .icon-arrow-top {
     width: 100%;
     height: auto;
+}
+
+.arrow-button:hover {
+    cursor: pointer;
+    background: #000;
+}
+
+.arrow-button:hover .icon-arrow-top {
+    /* fill: #888; */
+    fill: #FFF;
 }

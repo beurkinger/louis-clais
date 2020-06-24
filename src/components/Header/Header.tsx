@@ -29,7 +29,7 @@ const Header: FunctionComponent = () => {
                 setIsError(true);
                 setIsLoading(false);
             })
-    });
+    }, []);
     
     return (
         <header className="header">
