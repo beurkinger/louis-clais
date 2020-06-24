@@ -46,6 +46,7 @@
     height: 100%;
     background: #FFF;
     font-weight: 500;
+    pointer-events: initial;
 }
 
 .gallery .gallery-counter {
