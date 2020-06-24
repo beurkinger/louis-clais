@@ -25,8 +25,7 @@ const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
     const currentImgPath = images[currentImgIndex]?.path ?? '';
     return (
         <div
-            className="gallery"
-            style={{ cursor: images.length > 1 ? 'pointer' : '' }}
+            className={`gallery ${images.length > 1 ? 'clickable' : '' }`}
         >   {images.length > 1 && (
                 <div className="gallery-multiple">
                     {images.map((image, i) => (

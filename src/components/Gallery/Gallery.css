@@ -3,6 +3,10 @@
     width: 100%;
 }
 
+.gallery.clickable:hover {
+    cursor: pointer;
+}
+
 .gallery-multiple {
     position: relative;
     width: 100%;
