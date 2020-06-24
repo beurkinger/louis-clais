@@ -2,7 +2,6 @@ import { h, FunctionComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 import config from '../../config';
 import { loadJson } from '../../utils/jsonLoader';
-import App from '../../components/App/App';
 import Article from '../../components/Article/Article';
 import BackToMain from '../../components/BackToMain/BackToMain';
 
@@ -43,15 +42,13 @@ const ArticlePage: FunctionComponent<Props> = ({ articleId }: Props) => {
     }, []);
     
     return (
-        <App>
-            <div>
-                <BackToMain/>
-                {!isLoading && !isError && article && (
-                    <Article {...article} />
-                )}
-                {!isLoading && isError && error}
-            </div>
-        </App>
+        <div>
+            <BackToMain/>
+            {!isLoading && !isError && article && (
+                <Article {...article} />
+            )}
+            {!isLoading && isError && error}
+        </div>
     );
 };
 
