@@ -2,10 +2,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  output: {
-    publicPath: '/'
-
-  },
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: [".js", ".jsx", ".ts", ".tsx"]
@@ -46,6 +42,8 @@ module.exports = {
     new MiniCssExtractPlugin()
   ],
   devServer: {
+    contentBase: __dirname + '/public',
     historyApiFallback: true,
+    publicPath: '/',
   }
 };
