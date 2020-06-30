@@ -6,7 +6,7 @@
 }
 
 .article-content {
-    margin: 2.5rem 3rem;
+    margin: 2.5rem 3rem 2.75rem;
 }
 
 .article-content-header {
@@ -20,6 +20,14 @@
 
 .article-content-header a:hover {
     color: inherit;
+}
+
+.article-content-details {
+    font-weight: 300;
+    font-size: 0.9rem;
+    letter-spacing: 0.04rem;
+    margin-bottom: 0.9rem;
+    letter-spacing: 1.5;
 }
 
 .article-content-body {

@@ -8,6 +8,7 @@ interface State {
     articles: Array<{
         _id: string;
         body: string;
+        details: string;
         gallery: Array<{ path: string }>;
         title: string;
     }>;
@@ -25,11 +26,12 @@ const ArticlesPage: FunctionComponent = () => {
     useEffect(() => {
         loadJson(`${config.baseUrl}${config.path.getArticles}`)
             .then((response: any) => {
-                const articles = response?.entries.map((entry: any) => ({
-                    _id: entry._id || '',
-                    body: entry.body || '',
-                    gallery: entry.gallery || [],
-                    title: entry.title || '',
+                const articles  = response?.entries.map((entry: any) => ({
+                    _id: entry?._id ?? '',
+                    body: entry?.body ?? '',
+                    details: entry?.details ?? '',
+                    gallery: entry?.gallery ?? [],
+                    title: entry?.title ?? '',
                 })) ?? [];
                 setArticles(articles);
                 setIsLoading(false);

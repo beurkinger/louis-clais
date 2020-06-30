@@ -6,12 +6,14 @@ import './Article.css';
 interface Props {
     _id: string;
     body: string;
+    details: string;
     gallery: Array<{ path: string }>;
     title: string;
 }
 
-const Article: FunctionComponent<Props> = ({ _id, body, gallery, title }: Props) => {
-    const hotStuff = { __html: body };
+const Article: FunctionComponent<Props> = ({ _id, body, details, gallery, title }: Props) => {
+    const hotDetails = { __html: details.replace('\n', '<br/>')};
+    const hotBody = { __html: body };
     return (
         <article class="article" >
             {gallery.length > 0 && <Gallery images={gallery} />}
@@ -21,7 +23,12 @@ const Article: FunctionComponent<Props> = ({ _id, body, gallery, title }: Props)
                         {title}
                     </a>
                 </h4>
-                <div class="article-content-body" dangerouslySetInnerHTML={hotStuff} />
+                {details && (
+                    <p class="article-content-details" dangerouslySetInnerHTML={hotDetails} />
+                )}
+                {body && (
+                    <div class="article-content-body" dangerouslySetInnerHTML={hotBody} />
+                )}
             </div>
         </article>
     );

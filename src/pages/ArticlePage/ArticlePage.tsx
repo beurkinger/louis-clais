@@ -13,6 +13,7 @@ interface State {
     article: {
         _id: string,
         body: string;
+        details: string;
         gallery: Array<{ path: string }>;
         title: string;
     } | null;
@@ -30,7 +31,14 @@ const ArticlePage: FunctionComponent<Props> = ({ articleId }: Props) => {
     useEffect(() => {
         loadJson(`${config.baseUrl}${config.path.getArticles}`, 'POST', { filter: { '_id': articleId } })
             .then((response: any) => {
-                const article = response?.entries[0] ?? null;
+                const entry = response?.entries[0] ?? null;
+                const article = {
+                    _id: entry?._id ?? '',
+                    body: entry?.body ?? '',
+                    details: entry?.details ?? '',
+                    gallery: entry?.gallery ?? [],
+                    title: entry?.title ?? '',
+                };
                 setArticle(article);
                 setIsLoading(false);
             })
