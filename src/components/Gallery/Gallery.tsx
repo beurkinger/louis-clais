@@ -52,7 +52,7 @@ const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
                 >
                     <IconExtend/>
                 </a>
-                {images.length > 0 && (
+                {images.length > 1 && (
                     <div className="gallery-counter">
                         {currentImgIndex + 1} / {images.length}
                     </div>
