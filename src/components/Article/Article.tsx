@@ -17,19 +17,23 @@ const Article: FunctionComponent<Props> = ({ _id, body, details, gallery, title 
     return (
         <article class="article" >
             {gallery.length > 0 && <Gallery images={gallery} />}
-            <div class="article-content" >
-                <h4 class="article-content-header">
-                    <a href={`/post/${_id}`}>
-                        {title}
-                    </a>
-                </h4>
-                {details && (
-                    <p class="article-content-details" dangerouslySetInnerHTML={hotDetails} />
+                {(title || details || body) && (
+                     <div class="article-content" >
+                        {title && (
+                            <h4 class="article-content-header">
+                                <a href={`/post/${_id}`}>
+                                    {title}
+                                </a>
+                            </h4>
+                        )}
+                        {details && (
+                            <p class="article-content-details" dangerouslySetInnerHTML={hotDetails} />
+                        )}
+                        {body && (
+                            <div class="article-content-body" dangerouslySetInnerHTML={hotBody} />
+                        )}
+                     </div>
                 )}
-                {body && (
-                    <div class="article-content-body" dangerouslySetInnerHTML={hotBody} />
-                )}
-            </div>
         </article>
     );
 }

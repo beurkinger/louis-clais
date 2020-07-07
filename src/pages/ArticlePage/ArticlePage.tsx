@@ -34,10 +34,10 @@ const ArticlePage: FunctionComponent<Props> = ({ articleId }: Props) => {
                 const entry = response?.entries[0] ?? null;
                 const article = {
                     _id: entry?._id ?? '',
-                    body: entry?.body ?? '',
-                    details: entry?.details ?? '',
+                    body: entry?.body?.trim() ?? '',
+                    details: entry?.details?.trim() ?? '',
                     gallery: entry?.gallery ?? [],
-                    title: entry?.title ?? '',
+                    title: entry?.title?.trim() ?? '',
                 };
                 setArticle(article);
                 setIsLoading(false);

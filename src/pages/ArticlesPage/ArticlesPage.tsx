@@ -28,10 +28,10 @@ const ArticlesPage: FunctionComponent = () => {
             .then((response: any) => {
                 const articles  = response?.entries.map((entry: any) => ({
                     _id: entry?._id ?? '',
-                    body: entry?.body ?? '',
-                    details: entry?.details ?? '',
+                    body: entry?.body?.trim() ?? '',
+                    details: entry?.details?.trim() ?? '',
                     gallery: entry?.gallery ?? [],
-                    title: entry?.title ?? '',
+                    title: entry?.title?.trim() ?? '',
                 })) ?? [];
                 setArticles(articles);
                 setIsLoading(false);
