@@ -6,53 +6,53 @@ import { loadJson } from '../../utils/jsonLoader';
 
 import './Header.css';
 
+type Data<P> = {
+    error: string,
+    isError: boolean,
+    isLoading: boolean,
+    payload: P,
+}
+
 interface State {
-    downloads: Array<{ path: string, title: string }>
-    errorDownloads: string;
-    isErrorDownloads: boolean;
-    isLoadingDownloads: boolean;
-    intro: '',
-    errorIntro: string;
-    isErrorIntro: boolean;
-    isLoadingIntro: boolean;
+    downloads: Data<Array<{ path: string, title: string }>>,
+    intro: Data<''>,
 }
 
 const Header: FunctionComponent = () => {
-    const [downloads, setDownloads] = useState<State['downloads']>([]);
-    const [errorDownloads, setErrorDownloads] = useState<State['errorDownloads']>('');
-    const [isErrorDownloads, setIsErrorDownloads] = useState<State['isErrorDownloads']>(false);
-    const [isLoadingDownloads, setIsLoadingDownloads] = useState<State['isLoadingDownloads']>(true);
+    const [downloads, setDownloads] = useState<State['downloads']>({
+        error: '',
+        isError: false,
+        isLoading: true,
+        payload: [],
+    });
 
-    const [intro, setIntro] = useState<State['intro']>('');
-    const [errorIntro, setErrorIntro] = useState<State['errorIntro']>('');
-    const [isErrorIntro, setIsErrorIntro] = useState<State['isErrorIntro']>(false);
-    const [isLoadingIntro, setIsLoadingIntro] = useState<State['isLoadingIntro']>(true);
+    const [intro, setIntro] = useState<State['intro']>({
+        error: '',
+        isError: false,
+        isLoading: true,
+        payload: '',
+    });
 
     useEffect(() => {
         loadJson(`${config.baseUrl}${config.path.getDownloads}`)
             .then((response: any) => {
-                const downloads = response?.entries.map((entry: any) => ({
+                const payload = response?.entries.map((entry: any) => ({
                     path: entry?.path ?? '',
                     title: entry?.title ?? '',
                 })) ?? [];
-                setDownloads(downloads);
-                setIsLoadingDownloads(false);
+                setDownloads({ ...downloads, isLoading: false, payload });
             })
             .catch((error: string) => {
-                setErrorDownloads(error);
-                setIsErrorDownloads(true);
-                setIsLoadingDownloads(false);
+                setDownloads({ ...downloads, isError: true, isLoading: false, error });
             })
 
         loadJson(`${config.baseUrl}${config.path.getHeader}`)
             .then((response: any) => {
-                setIntro(response?.intro ?? '');
-                setIsLoadingIntro(false);
+                const payload = response?.intro ?? '';
+                setIntro({ ...downloads, isLoading: false, payload });
             })
-            .catch((errorIntro: string) => {
-                setErrorIntro(errorIntro);
-                setIsErrorIntro(true);
-                setIsLoadingIntro(false);
+            .catch((error: string) => {
+                setIntro({ ...intro, isError: true, isLoading: false, error });
             })
     }, []);
     
@@ -62,14 +62,14 @@ const Header: FunctionComponent = () => {
                 Louis Clais
             </h2>
             <p className="header-presentation">
-                {!isLoadingIntro && !isErrorIntro && intro}
-                {!isLoadingIntro && isErrorIntro && errorIntro}
+                {!intro.isLoading && !intro.isError && intro.payload}
+                {!intro.isLoading && intro.isError && intro.error}
             </p>
             <div className="header-downloads">
-                {!isLoadingDownloads && !isErrorDownloads && downloads.map(file => (
+                {!downloads.isLoading && !downloads.isError && downloads.payload.map(file => (
                     <a className="header-download-btn" href={`${config.baseUrl}/${file.path}`} target="_blank">{file.title}</a>
                 ))}
-                {!isLoadingDownloads && isErrorDownloads && errorDownloads}
+                {!downloads.isLoading && downloads.isError && downloads.error}
             </div>
         </header>
     );
