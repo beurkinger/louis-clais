@@ -1,20 +1,14 @@
 import { h, FunctionComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
 
+import { Data } from '../../types/types';
 import config from '../../config';
 import { loadJson } from '../../utils/jsonLoader';
 
 import './Header.css';
 
-type Data<P> = {
-    error: string,
-    isError: boolean,
-    isLoading: boolean,
-    payload: P,
-}
-
 interface State {
-    downloads: Data<Array<{ path: string, title: string }>>,
+    downloads: Data <Array<{ path: string, title: string }>>,
     intro: Data<''>,
 }
 

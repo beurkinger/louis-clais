@@ -1,5 +1,7 @@
 import { h, FunctionComponent } from 'preact';
+
 import Gallery from '../Gallery/Gallery';
+
 import './Article.css';
 
 

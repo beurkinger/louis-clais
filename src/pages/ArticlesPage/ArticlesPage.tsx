@@ -1,57 +1,50 @@
 import { h, FunctionComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
+
+import { Article as ArticleType, Data } from '../../types/types';
 import config from '../../config';
 import { loadJson } from '../../utils/jsonLoader';
+
 import Article from '../../components/Article/Article';
 
 interface State {
-    articles: Array<{
-        _id: string;
-        body: string;
-        details: string;
-        gallery: Array<{ path: string }>;
-        title: string;
-    }>;
-    error: string;
-    isError: boolean;
-    isLoading: boolean;
+    articles: Data<ArticleType[]>
 }
 
 const ArticlesPage: FunctionComponent = () => {
-    const [articles, setArticles] = useState<State['articles']>([]);
-    const [error, setError] = useState<State['error']>('');
-    const [isError, setIsError] = useState<State['isError']>(false);
-    const [isLoading, setIsLoading] = useState<State['isLoading']>(true);
+    const [articles, setArticles] = useState<State['articles']>({
+        error: '',
+        isError: false,
+        isLoading: true,
+        payload: [],
+    });
 
     useEffect(() => {
         loadJson(`${config.baseUrl}${config.path.getArticles}`)
             .then((response: any) => {
-                const articles  = response?.entries.map((entry: any) => ({
+                const payload  = response?.entries.map((entry: any) => ({
                     _id: entry?._id ?? '',
                     body: entry?.body?.trim() ?? '',
                     details: entry?.details?.trim() ?? '',
                     gallery: entry?.gallery ?? [],
                     title: entry?.title?.trim() ?? '',
                 })) ?? [];
-                setArticles(articles);
-                setIsLoading(false);
+                setArticles({ ...articles, isLoading: false, payload });
+
             })
             .catch((error: string) => {
-                setError(error);
-                setIsError(true);
-                setIsLoading(false);
+                setArticles({ ...articles, isError: true, isLoading: false, error });
             })
     }, []);
     
     return (
         <div>
-            {!isLoading && !isError && articles.map(article => (
+            {!articles.isLoading && !articles.isError && articles.payload.map(article => (
                 <Article {...article} />
             ))}
-            {!isLoading && isError && error}
+            {!articles.isLoading && articles.isError && articles.error}
         </div>
     );
 };
 
 export default ArticlesPage;
-
