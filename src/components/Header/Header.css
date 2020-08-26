@@ -5,3 +5,18 @@
 .header-presentation {
     margin-bottom: 0.62rem;
 }
+
+.header-download-btn {
+    display: inline-block;
+    margin: 0.5rem 0.7rem 0.7rem 0;
+    border: 1px solid #000;
+    text-decoration: none;
+    padding: 0.2rem 0.35rem 0.2rem 0.35rem;
+}
+
+.header-download-btn:hover {
+    color: inherit;
+    transform: translate(-0.1rem, -0.1rem);
+    box-shadow: 0.15rem 0.15rem 0.0625rem 0px #000;
+
+}

@@ -1,33 +1,58 @@
 import { h, FunctionComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
+
 import config from '../../config';
 import { loadJson } from '../../utils/jsonLoader';
-import Downloads from '../Downloads/Downloads';
+
 import './Header.css';
 
 interface State {
+    downloads: Array<{ path: string, title: string }>
+    errorDownloads: string;
+    isErrorDownloads: boolean;
+    isLoadingDownloads: boolean;
     intro: '',
-    error: string;
-    isError: boolean;
-    isLoading: boolean;
+    errorIntro: string;
+    isErrorIntro: boolean;
+    isLoadingIntro: boolean;
 }
 
 const Header: FunctionComponent = () => {
+    const [downloads, setDownloads] = useState<State['downloads']>([]);
+    const [errorDownloads, setErrorDownloads] = useState<State['errorDownloads']>('');
+    const [isErrorDownloads, setIsErrorDownloads] = useState<State['isErrorDownloads']>(false);
+    const [isLoadingDownloads, setIsLoadingDownloads] = useState<State['isLoadingDownloads']>(true);
+
     const [intro, setIntro] = useState<State['intro']>('');
-    const [error, setError] = useState<State['error']>('');
-    const [isError, setIsError] = useState<State['isError']>(false);
-    const [isLoading, setIsLoading] = useState<State['isLoading']>(true);
+    const [errorIntro, setErrorIntro] = useState<State['errorIntro']>('');
+    const [isErrorIntro, setIsErrorIntro] = useState<State['isErrorIntro']>(false);
+    const [isLoadingIntro, setIsLoadingIntro] = useState<State['isLoadingIntro']>(true);
 
     useEffect(() => {
+        loadJson(`${config.baseUrl}${config.path.getDownloads}`)
+            .then((response: any) => {
+                const downloads = response?.entries.map((entry: any) => ({
+                    path: entry?.path ?? '',
+                    title: entry?.title ?? '',
+                })) ?? [];
+                setDownloads(downloads);
+                setIsLoadingDownloads(false);
+            })
+            .catch((error: string) => {
+                setErrorDownloads(error);
+                setIsErrorDownloads(true);
+                setIsLoadingDownloads(false);
+            })
+
         loadJson(`${config.baseUrl}${config.path.getHeader}`)
             .then((response: any) => {
                 setIntro(response?.intro ?? '');
-                setIsLoading(false);
+                setIsLoadingIntro(false);
             })
-            .catch((error: string) => {
-                setError(error);
-                setIsError(true);
-                setIsLoading(false);
+            .catch((errorIntro: string) => {
+                setErrorIntro(errorIntro);
+                setIsErrorIntro(true);
+                setIsLoadingIntro(false);
             })
     }, []);
     
@@ -37,10 +62,15 @@ const Header: FunctionComponent = () => {
                 Louis Clais
             </h2>
             <p className="header-presentation">
-                {!isLoading && !isError && intro}
-                {!isLoading && isError && error}
+                {!isLoadingIntro && !isErrorIntro && intro}
+                {!isLoadingIntro && isErrorIntro && errorIntro}
             </p>
-            <Downloads/>
+            <div className="header-downloads">
+                {!isLoadingDownloads && !isErrorDownloads && downloads.map(file => (
+                    <a className="header-download-btn" href={`${config.baseUrl}/${file.path}`} target="_blank">{file.title}</a>
+                ))}
+                {!isLoadingDownloads && isErrorDownloads && errorDownloads}
+            </div>
         </header>
     );
 }
