@@ -5,37 +5,39 @@ import ArrowButton from '../ArrowButton/ArrowButton';
 import './BackToTop.css';
 
 const handleOnClick = () => {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 };
 
 interface State {
-    isVisible: boolean;
+  isVisible: boolean;
 }
 
 const BackToTop: FunctionComponent = () => {
-    const [isVisible, setIsVisible] = useState<State['isVisible']>(false);
+  const [isVisible, setIsVisible] = useState<State['isVisible']>(false);
 
-    const handleOnScroll = debounceWithRequestAnimationFrame(() => {
-        const { innerHeight: windowHeight } = window;
-        const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-        const isScrolled = scrollTop > windowHeight;
-        setIsVisible(() => isScrolled ? true : false);
-    });
+  const handleOnScroll = debounceWithRequestAnimationFrame(() => {
+    const { innerHeight: windowHeight } = window;
+    const scrollTop =
+      document.body.scrollTop || document.documentElement.scrollTop;
+    const isScrolled = scrollTop > windowHeight;
+    setIsVisible(() => (isScrolled ? true : false));
+  });
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleOnScroll);
-        return () => {
-            window.removeEventListener('scroll', handleOnScroll);
-        };
-    }, [])
-    
-    if (!isVisible) return null;
-    return (
-        <button class="back-to-top" onClick={handleOnClick} >
-            <ArrowButton/>
-        </button>
-    );
+  useEffect(() => {
+    window.addEventListener('scroll', handleOnScroll);
+    return () => {
+      window.removeEventListener('scroll', handleOnScroll);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (!isVisible) return null;
+  return (
+    <button className="back-to-top" onClick={handleOnClick}>
+      <ArrowButton />
+    </button>
+  );
 };
 
 export default BackToTop;

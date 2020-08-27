@@ -1,18 +1,20 @@
-type Procedure = (...args: any[]) => void;
+type Procedure = (...args: unknown[]) => void;
 
-export const debounce = (func: Procedure, time: number) => {
+export const debounce = (func: Procedure, time: number): Procedure => {
   let timeout: number;
-  return (...args: any[]) => {
+  return (...args: unknown[]) => {
     clearTimeout(timeout);
-    timeout = window.setTimeout(() => func(...args), time);
+    timeout = window?.setTimeout(() => func(...args), time);
   };
 };
 
 // Debounce like function that relies on requestAnimationFrame
-export const debounceWithRequestAnimationFrame = (func: Procedure) => {
+export const debounceWithRequestAnimationFrame = (
+  func: Procedure
+): Procedure => {
   let animationFrame: number;
-  return (...args: any[]) => {
+  return (...args: unknown[]) => {
     cancelAnimationFrame(animationFrame);
-    animationFrame = window.requestAnimationFrame(() => func(...args));
+    animationFrame = window?.requestAnimationFrame(() => func(...args));
   };
 };
