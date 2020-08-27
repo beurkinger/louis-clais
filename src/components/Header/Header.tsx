@@ -1,71 +1,27 @@
 import { h, FunctionComponent } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
 
-import { Data, Download as DownloadType } from '../../types/types';
+import { Download as DownloadType } from '../../types/types';
 import config from '../../config';
-import { loadJson } from '../../utils/jsonLoader';
+import useJson from '../../hooks/useJSON';
 
 import './Header.css';
 
-interface State {
-  downloads: Data<DownloadType[]>;
-  intro: Data<string>;
-}
-
 const Header: FunctionComponent = () => {
-  const [downloads, setDownloads] = useState<State['downloads']>({
-    error: '',
-    isError: false,
-    isLoading: true,
-    payload: [],
-  });
+  const downloads = useJson<{ entries: DownloadType[] }, DownloadType[]>(
+    [],
+    `${config.baseUrl}${config.path.getDownloads}`,
+    (response) =>
+      response?.entries.map((entry) => ({
+        path: entry?.path ?? '',
+        title: entry?.title ?? '',
+      })) ?? []
+  );
 
-  const [intro, setIntro] = useState<State['intro']>({
-    error: '',
-    isError: false,
-    isLoading: true,
-    payload: '',
-  });
-
-  useEffect(() => {
-    loadJson<{ entries: DownloadType[] }>(
-      `${config.baseUrl}${config.path.getDownloads}`
-    )
-      .then((response) => {
-        const payload =
-          response?.entries.map((entry) => ({
-            path: entry?.path ?? '',
-            title: entry?.title ?? '',
-          })) ?? [];
-        setDownloads((downloads) => ({
-          ...downloads,
-          isLoading: false,
-          payload,
-        }));
-      })
-      .catch((error: string) => {
-        setDownloads((downloads) => ({
-          ...downloads,
-          isError: true,
-          isLoading: false,
-          error,
-        }));
-      });
-
-    loadJson<{ intro: string }>(`${config.baseUrl}${config.path.getHeader}`)
-      .then((response) => {
-        const payload = response?.intro ?? '';
-        setIntro((intro) => ({ ...intro, isLoading: false, payload }));
-      })
-      .catch((error: string) => {
-        setIntro((intro) => ({
-          ...intro,
-          isError: true,
-          isLoading: false,
-          error,
-        }));
-      });
-  }, []);
+  const intro = useJson<{ intro: string }, string>(
+    '',
+    `${config.baseUrl}${config.path.getHeader}`,
+    (response) => response?.intro ?? ''
+  );
 
   return (
     <header className="header">
