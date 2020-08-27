@@ -1,8 +1,11 @@
 import { h, FunctionComponent } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
+
 import { debounceWithRequestAnimationFrame } from '../../utils/debounce';
+
 import ArrowButton from '../ArrowButton/ArrowButton';
-import './BackToTop.css';
+
+import style from './BackToTop.css';
 
 const handleOnClick = () => {
   document.body.scrollTop = 0;
@@ -34,7 +37,7 @@ const BackToTop: FunctionComponent = () => {
 
   if (!isVisible) return null;
   return (
-    <button className="back-to-top" onClick={handleOnClick}>
+    <button className={style.backToTop} onClick={handleOnClick}>
       <ArrowButton />
     </button>
   );

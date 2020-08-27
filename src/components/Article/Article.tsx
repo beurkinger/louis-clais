@@ -2,7 +2,7 @@ import { h, FunctionComponent } from 'preact';
 
 import Gallery from '../Gallery/Gallery';
 
-import './Article.css';
+import style from './Article.css';
 
 interface Props {
   _id: string;
@@ -22,24 +22,24 @@ const Article: FunctionComponent<Props> = ({
   const hotDetails = { __html: details.replace('\n', '<br/>') };
   const hotBody = { __html: body };
   return (
-    <article className="article">
+    <article className={style.article}>
       {gallery.length > 0 && <Gallery images={gallery} />}
       {(title || details || body) && (
-        <div className="article-content">
+        <div className={style.articleContent}>
           {title && (
-            <h4 className="article-content-header">
+            <h4 className={style.articleContentHeader}>
               <a href={`/post/${_id}`}>{title}</a>
             </h4>
           )}
           {details && (
             <p
-              className="article-content-details"
+              className={style.articleContentDetails}
               dangerouslySetInnerHTML={hotDetails}
             />
           )}
           {body && (
             <div
-              className="article-content-body"
+              className={style.articleContentBody}
               dangerouslySetInnerHTML={hotBody}
             />
           )}

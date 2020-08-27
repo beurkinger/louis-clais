@@ -1,9 +1,9 @@
 import { h, FunctionComponent } from 'preact';
 import IconArrowTop from '../IconArrowTop/IconArrowTop';
-import './ArrowButton.css';
+import style from './ArrowButton.css';
 
 const ArrowButton: FunctionComponent = () => (
-  <div className="arrow-button">
+  <div className={style.arrowButton}>
     <IconArrowTop />
   </div>
 );

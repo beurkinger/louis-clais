@@ -1,21 +1,21 @@
 import { h, FunctionComponent, ComponentChildren } from 'preact';
 import BackToTop from '../BackToTop/BackToTop';
 import Header from '../Header/Header';
-import './App.css';
+import style from './App.css';
 
 interface Props {
   children: ComponentChildren;
 }
 
 const App: FunctionComponent<Props> = ({ children }: Props) => (
-  <div className="app">
-    <div className="app-left-column">
-      <div className="app-left-column-content">
+  <div className={style.app}>
+    <div className={style.appLeftColumn}>
+      <div className={style.appLeftColumnContent}>
         <Header />
       </div>
     </div>
-    <div className="app-right-column">
-      <div className="app-right-column-content">{children}</div>
+    <div className={style.appRightColumn}>
+      <div className={style.appRightColumnContent}>{children}</div>
     </div>
     <BackToTop />
   </div>

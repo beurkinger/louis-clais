@@ -28,7 +28,7 @@ module.exports = {
           '@teamsupercell/typings-for-css-modules-loader',
           {
             loader: 'css-loader',
-            // options: { modules: true },
+            options: { modules: true },
           },
           'postcss-loader',
         ],

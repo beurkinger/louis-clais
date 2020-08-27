@@ -1,8 +1,11 @@
 import { h, FunctionComponent } from 'preact';
 import { useState } from 'preact/hooks';
+
 import config from '../../config';
+
 import IconExtend from '../IconExtend/IconExtend';
-import './gallery.css';
+
+import style from './gallery.css';
 
 interface Props {
   images: Array<{ path: string }>;
@@ -25,13 +28,15 @@ const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
 
   const currentImgPath = images[currentImgIndex]?.path ?? '';
   return (
-    <div className={`gallery ${images.length > 1 ? 'clickable' : ''}`}>
+    <div
+      className={`${style.gallery} ${images.length > 1 ? style.clickable : ''}`}
+    >
       {' '}
       {images.length > 1 && (
-        <div className="gallery-multiple">
+        <div className={style.galleryMultiple}>
           {images.map((image, i) => (
             <img
-              className="gallery-multiple-img"
+              className={style.galleryMultipleImg}
               key={image.path}
               onClick={handleOnClick}
               src={`${config.baseUrl}${image.path}`}
@@ -42,13 +47,13 @@ const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
       )}
       {images.length === 1 && (
         <img
-          className="gallery-single-img"
+          className={style.gallerySingleImg}
           src={`${config.baseUrl}${currentImgPath}`}
         />
       )}
-      <div className="gallery-icons">
+      <div className={style.galleryIcons}>
         <a
-          className="gallery-extend"
+          className={style.galleryExtend}
           href={`${config.baseUrl}${currentImgPath}`}
           rel="noreferrer"
           target="_blank"
@@ -56,7 +61,7 @@ const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
           <IconExtend />
         </a>
         {images.length > 1 && (
-          <div className="gallery-counter">
+          <div className={style.galleryCounter}>
             {currentImgIndex + 1} / {images.length}
           </div>
         )}

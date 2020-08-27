@@ -1,4 +1,4 @@
-.arrow-button {
+.arrowButton {
     display: block;
     border: 1px solid #000;
     border-radius: 100%;
@@ -10,17 +10,17 @@
     box-shadow: 0.15rem 0.15rem 0.0625rem 0px #000;
 }
 
-.arrow-button .icon-arrow-top {
+.arrowButton svg {
     width: 100%;
     height: auto;
 }
 
-.arrow-button:hover {
+.arrowButton:hover {
     cursor: pointer;
     background: #000;
 }
 
-.arrow-button:hover .icon-arrow-top {
+.arrowButton:hover svg {
     /* fill: #888; */
     fill: #FFF;
 }

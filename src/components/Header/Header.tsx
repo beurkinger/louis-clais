@@ -4,7 +4,7 @@ import { Download as DownloadType } from '../../types/types';
 import config from '../../config';
 import useJson from '../../hooks/useJSON';
 
-import './Header.css';
+import style from './Header.css';
 
 const Header: FunctionComponent = () => {
   const downloads = useJson<{ entries: DownloadType[] }, DownloadType[]>(
@@ -24,18 +24,18 @@ const Header: FunctionComponent = () => {
   );
 
   return (
-    <header className="header">
-      <h2 className="header-title">Louis Clais</h2>
-      <p className="header-presentation">
+    <header>
+      <h2 className={style.headerTitle}>Louis Clais</h2>
+      <p className={style.headerPresentation}>
         {!intro.isLoading && !intro.isError && intro.payload}
         {!intro.isLoading && intro.isError && intro.error}
       </p>
-      <div className="header-downloads">
+      <div>
         {!downloads.isLoading &&
           !downloads.isError &&
           downloads.payload.map((file) => (
             <a
-              className="header-download-btn"
+              className={style.headerDownloadBtn}
               key={file.path + file.title}
               href={`${config.baseUrl}/${file.path}`}
               rel="noreferrer"

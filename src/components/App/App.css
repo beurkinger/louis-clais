@@ -3,23 +3,23 @@
     height: 100vh;
 }
 
-.app-left-column {
+.appLeftColumn {
     position: fixed;
     top: 0;
     left: 0;
     width: 22.5rem;;
     padding: 3rem 0rem 2.5rem 4rem;
 }
-.app-left-column-content {
+.appLeftColumnContent {
     max-width: 40rem;
 }
 
-.app-right-column {
+.appRightColumn {
     width: 100%;
     padding: 3rem 2.5rem 3rem 25rem;
 }
 
-.app-right-column-content {
+.appRightColumnContent {
     margin: 0 auto;
     width: 80%;
     max-width: 42rem;
@@ -27,17 +27,17 @@
 
 @media 
 screen and (max-width: 768px) {
-    .app-left-column {
+    .appLeftColumn {
         position: static;
         width: 100%;
         padding: 2.5rem;
     }
 
-    .app-right-column {
+    .appRightColumn {
         padding: 0 2.5rem;
     }
 
-    .app-right-column-content {
+    .appRightColumnContent {
         margin: 0;
         width: 100%;
         max-width: initial;
@@ -46,11 +46,11 @@ screen and (max-width: 768px) {
 
 @media
 screen and (max-width: 540px) {
-    .app-left-column {
+    .appLeftColumn {
         padding: 2.5rem 1rem;
     }
 
-    .app-right-column {
+    .appRightColumn {
         padding: 0 1rem;
     }
 }

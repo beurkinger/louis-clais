@@ -1,9 +1,9 @@
 import { h, FunctionComponent } from 'preact';
 import ArrowButton from '../ArrowButton/ArrowButton';
-import './BackToMain.css';
+import style from './BackToMain.css';
 
 const BackToMain: FunctionComponent = () => (
-  <a className="back-to-main" href="/">
+  <a className={style.backToMain} href="/">
     <ArrowButton />
   </a>
 );
