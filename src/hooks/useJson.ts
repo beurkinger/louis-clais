@@ -9,7 +9,6 @@ const useJson = <R, P>(
   parser?: (response: R) => P,
   method: 'GET' | 'POST' = 'GET',
   body: Record<string, unknown> = {}
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
 ): Data<P> => {
   const [data, setData] = useState<Data<P>>({
     error: '',
