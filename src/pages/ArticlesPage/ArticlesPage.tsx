@@ -17,7 +17,11 @@ const ArticlesPage: FunctionComponent = () => {
         details: entry?.details?.trim() ?? '',
         gallery: entry?.gallery ?? [],
         title: entry?.title?.trim() ?? '',
-      })) ?? []
+      })) ?? [],
+    'POST',
+    {
+      filter: { published: true },
+    }
   );
 
   if (articles.isLoading) return null;
