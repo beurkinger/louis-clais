@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/beurkinger/preact-starter-kit#readme",
   "dependencies": {
-    "preact": "^10.4.4"
+    "preact": "^10.4.4",
+    "preact-router": "^3.2.1"
   },
   "devDependencies": {
     "@teamsupercell/typings-for-css-modules-loader": "^2.2.0",
