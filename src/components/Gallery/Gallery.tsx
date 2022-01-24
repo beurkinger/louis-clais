@@ -3,8 +3,6 @@ import { useState } from 'preact/hooks';
 
 import config from '../../config';
 
-import IconExtend from '../IconExtend/IconExtend';
-
 import style from './gallery.css';
 
 interface Props {
@@ -52,14 +50,6 @@ const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
         />
       )}
       <div className={style.galleryIcons}>
-        <a
-          className={style.galleryExtend}
-          href={`${config.baseUrl}${currentImgPath}`}
-          rel="noreferrer"
-          target="_blank"
-        >
-          <IconExtend />
-        </a>
         {images.length > 1 && (
           <div className={style.galleryCounter}>
             {currentImgIndex + 1} / {images.length}

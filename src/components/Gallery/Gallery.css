@@ -41,8 +41,7 @@
     pointer-events: none;
 }
 
-.galleryCounter,
-.galleryExtend {
+.galleryCounter {
     display: flex;
     align-items: center;
     justify-content: center;
