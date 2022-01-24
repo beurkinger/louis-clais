@@ -20,6 +20,7 @@ const ArticlesPage: FunctionComponent = () => {
       })) ?? [],
     'POST',
     {
+      sort: { _o: 1 },
       filter: { published: true },
     }
   );
