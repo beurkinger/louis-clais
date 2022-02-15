@@ -19,15 +19,18 @@ const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
   >(0);
 
   const handleOnClick = () => {
-    const newImgIndex =
-      currentImgIndex + 1 < images.length ? currentImgIndex + 1 : 0;
-    setCurrentImgIndex(newImgIndex);
+    if (images.length > 1) {
+      const newImgIndex =
+        currentImgIndex + 1 < images.length ? currentImgIndex + 1 : 0;
+      setCurrentImgIndex(newImgIndex);
+    }
   };
 
   const currentImgPath = images[currentImgIndex]?.path ?? '';
   return (
     <div
       className={`${style.gallery} ${images.length > 1 ? style.clickable : ''}`}
+      onClick={handleOnClick}
     >
       {' '}
       {images.length > 1 && (
@@ -36,7 +39,6 @@ const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
             <img
               className={style.galleryMultipleImg}
               key={image.path}
-              onClick={handleOnClick}
               src={`${config.baseUrl}${image.path}`}
               style={{ display: i === currentImgIndex ? 'block' : 'none' }}
             />
