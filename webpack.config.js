@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const HTML_TITLE = 'Louis Clais';
 const PUBLIC_PATH = {
-  PROD: '/louis-new/',
+  PROD: '/',
   DEV: '/',
 };
 
