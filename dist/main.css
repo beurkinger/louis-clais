@@ -171,11 +171,12 @@ screen and (max-width: 540px) {
 }
 
 ._20HwD2z6MUlKff-oqU8G9f {
-    margin: 2.5rem 3rem;
+    margin: 2rem 3rem;
 }
 
 ._3xq6kIyUo5Bf2SdPJtkfAZ {
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
+    font-weight: 700;
 }
 
 ._3xq6kIyUo5Bf2SdPJtkfAZ a {
@@ -185,19 +186,17 @@ screen and (max-width: 540px) {
 
 ._3xq6kIyUo5Bf2SdPJtkfAZ a:hover {
     color: inherit;
+    text-decoration: underline;
 }
 
 ._2QudS9l6Lm_6MFb0xRCQBj {
-    font-weight: 300;
+    font-weight: 500;
     font-size: 0.9rem;
-    letter-spacing: 0.04rem;
-    margin-bottom: 0.9rem;
-    letter-spacing: 1.5;
+    margin-bottom: 0.75rem;
 }
 
 ._2kgTz0R3wns0WjxRc-w8c7 {
     font-weight: 300;
-    letter-spacing: 0.035rem;
 }
 
 @media
@@ -205,6 +204,11 @@ screen and (max-width: 540px) {
     ._20HwD2z6MUlKff-oqU8G9f {
         margin: 1.75rem 2rem;
     }
+}
+.oefTyrOIbDeP5XRdn88k6 {
+    padding: 2.5rem 3rem;
+    border: 1px solid;
+    font-weight: 700;
 }
 .lTTf5EW1ZeMg1421uyVMK {
     display: block;
@@ -295,7 +299,7 @@ h1, h2, h3, h4, h5, h6 { font-weight: 700; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; }
 h3 { font-size: 1.25rem; }
-h4 { font-size: 1.1rem; }
+h4 { font-size: 1.15rem; }
 h5 { font-size: 1rem; }
 h6 { font-size: 0.85rem; }
 
@@ -304,7 +308,6 @@ p {
 }
 
 a {
-    font-weight: 500;
     color: #000;
 }
 
