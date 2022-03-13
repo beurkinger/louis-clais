@@ -1,5 +1,4 @@
 node_modules
-dist
 *.css.d.ts
 
 # Windows image file caches
