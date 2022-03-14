@@ -22,7 +22,7 @@
 .appRightColumnContent {
     margin: 0 auto;
     width: 80%;
-    max-width: 42.5rem;
+    max-width: 44rem;
 }
 
 @media screen and (min-width: 1550px) {
