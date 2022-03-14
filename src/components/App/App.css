@@ -36,7 +36,7 @@ screen and (max-width: 768px) {
     .appLeftColumn {
         position: static;
         width: 100%;
-        padding: 2.5rem;
+        padding: 2.5rem 2.5rem 1.5rem;
     }
 
     .appRightColumn {
