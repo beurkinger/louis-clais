@@ -31,18 +31,6 @@
     -webkit-text-size-adjust: 100%;
   }
 
-@media screen and (min-width: 1550px) {
-    html {
-        font-size: 18px;
-    }
-}
-
-@media screen and (min-width: 1750px) {
-    html {
-        font-size: 20px;
-    }
-}
-
 body {
     font-family: Helvetica-Neue-Web, "Helvetica Neue", "Helvetica", Arial, sans-serif;
     font-weight: 500;
@@ -54,12 +42,12 @@ body, input, textarea, button, select {
   }
 
 h1, h2, h3, h4, h5, h6 { font-weight: 700; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.5rem; }
-h3 { font-size: 1.25rem; }
-h4 { font-size: 1.15rem; }
-h5 { font-size: 1rem; }
-h6 { font-size: 0.85rem; }
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.15rem; }
+h6 { font-size: 1rem; }
 
 p {
     margin: 0.5rem 0;

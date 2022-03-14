@@ -19,7 +19,6 @@ const Article: FunctionComponent<Props> = ({
   gallery,
   title,
 }: Props) => {
-  const hotDetails = { __html: details.replace('\n', '<br/>') };
   const hotBody = { __html: body };
   return (
     <article className={style.article}>
@@ -32,10 +31,10 @@ const Article: FunctionComponent<Props> = ({
             </h4>
           )}
           {details && (
-            <p
-              className={style.articleContentDetails}
-              dangerouslySetInnerHTML={hotDetails}
-            />
+            <p className={style.articleContentDetails}>
+              <span className={style.articleContentDetailsBullet}>•</span>
+              {details}
+            </p>
           )}
           {body && (
             <div
