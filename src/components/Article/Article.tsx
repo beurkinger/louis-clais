@@ -20,9 +20,12 @@ const Article: FunctionComponent<Props> = ({
   title,
 }: Props) => {
   const hotBody = { __html: body };
+  const hasText = !!title || !!details || !!body;
   return (
     <article className={style.article}>
-      {gallery.length > 0 && <Gallery images={gallery} />}
+      {gallery.length > 0 && (
+        <Gallery images={gallery} noCounterOverflow={!hasText} />
+      )}
       {(title || details || body) && (
         <div className={style.articleContent}>
           {title && (

@@ -7,13 +7,17 @@ import style from './gallery.css';
 
 interface Props {
   images: Array<{ path: string }>;
+  noCounterOverflow: boolean;
 }
 
 interface State {
   currentImgIndex: number;
 }
 
-const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
+const Gallery: FunctionComponent<Props> = ({
+  images,
+  noCounterOverflow,
+}: Props) => {
   const [currentImgIndex, setCurrentImgIndex] = useState<
     State['currentImgIndex']
   >(0);
@@ -60,13 +64,15 @@ const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
           src={`${config.baseUrl}${currentImgPath}`}
         />
       )}
-      <div className={style.galleryIcons}>
-        {images.length > 1 && (
-          <div className={style.galleryCounter}>
-            {currentImgIndex + 1} / {images.length}
-          </div>
-        )}
-      </div>
+      {images.length > 1 && (
+        <div
+          className={`${style.galleryCounter} ${
+            noCounterOverflow ? style.galleryCounterNoOverflow : ''
+          }`}
+        >
+          {currentImgIndex + 1} / {images.length}
+        </div>
+      )}
     </div>
   );
 };

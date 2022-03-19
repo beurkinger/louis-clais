@@ -28,7 +28,26 @@
     height: auto;
 }
 
-.galleryIcons {
+.galleryCounter {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: -2.3rem;
+    right: -0.5rem;
+    line-height: 1;
+    border: 1px solid black;
+    padding: 0.35rem 0.4rem 0.3rem 0.4rem;
+    background: white;
+    overflow: visible;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.galleryCounter.galleryCounterNoOverflow{
+    bottom: 0.6rem;
+}
+
+/* .galleryIcons {
     position: absolute;
     bottom: 0rem;
     right: 0rem;
@@ -54,20 +73,19 @@
 
 .galleryCounter {
     padding: 0.1rem 0.5rem;
-}
+} */
 
-.galleryExtend {
+/* .galleryExtend {
     display: block;
     padding: 0.25rem;
-}
+} */
 
-.galleryExtend:hover {
+/* .galleryExtend:hover {
     background: black;
     fill: white;
 }
 
 .galleryExtend svg {
     width: auto;
-    height: 100%;
-    
-}
+    height: 100%; 
+} */
