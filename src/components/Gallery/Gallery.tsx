@@ -35,14 +35,23 @@ const Gallery: FunctionComponent<Props> = ({ images }: Props) => {
       {' '}
       {images.length > 1 && (
         <div className={style.galleryMultiple}>
-          {images.map((image, i) => (
-            <img
-              className={style.galleryMultipleImg}
-              key={image.path}
-              src={`${config.baseUrl}${image.path}`}
-              style={{ display: i === currentImgIndex ? 'block' : 'none' }}
-            />
-          ))}
+          {images.map((image, i) =>
+            i === currentImgIndex ? (
+              <img
+                className={style.galleryMultipleImg}
+                key={image.path}
+                src={`${config.baseUrl}${image.path}`}
+              />
+            ) : i - 1 === currentImgIndex ||
+              (currentImgIndex === images.length - 1 && i === 0) ? (
+              <img
+                className={style.galleryMultipleImg}
+                key={image.path}
+                src={`${config.baseUrl}${image.path}`}
+                style="display: none;"
+              />
+            ) : null
+          )}
         </div>
       )}
       {images.length === 1 && (
