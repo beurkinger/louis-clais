@@ -1,37 +1,43 @@
-._1uIYKhFSicPyvQjoDUvnDA {
+._3auAnGujCb6K3aqhBwZf3A {
+    position: fixed;
+    bottom: 2rem;
+    left: 5rem;
+    border: 0;
+}
+
+@media 
+screen and (max-width: 768px) {
+    ._3auAnGujCb6K3aqhBwZf3A {
+        left: 50%;
+        bottom: 1.5rem;
+        transform: translateX(-50%);
+    }
+}
+
+._2Gs-uVwXTzkyvmw5Bm41yy {
     display: block;
     border: 1px solid #000;
-    border-radius: 100%;
+    border-radius: 10%;
     width: 2.25rem;
     height: 2.25rem;
     padding: 0.58rem;
     font-weight: 500;
     background: #FFF;
-    box-shadow: 0.15rem 0.15rem 0.0625rem 0px #000;
+    box-shadow: 0.15rem 0.15rem 0.0625rem 0px;
 }
 
-._1uIYKhFSicPyvQjoDUvnDA svg {
+._2Gs-uVwXTzkyvmw5Bm41yy svg {
     width: 100%;
     height: auto;
 }
 
-._1uIYKhFSicPyvQjoDUvnDA:hover {
+._2Gs-uVwXTzkyvmw5Bm41yy:hover {
     cursor: pointer;
-    background: #000;
+    color: inherit;
+    transform: translate(0.1rem, 0.1rem);
+    box-shadow: none;
 }
 
-._1uIYKhFSicPyvQjoDUvnDA:hover svg {
-    /* fill: #888; */
-    fill: #FFF;
-}
-._3auAnGujCb6K3aqhBwZf3A {
-    position: fixed;
-    bottom: 1rem;
-    left: 50%;
-    border: 0;
-    background: transparent;
-    transform: translateX(-50%);
-}
 ._2oExzUs-thVdgi5RFS4NHL {
     width: 100vw;
     height: 100vh;
@@ -285,7 +291,7 @@ screen and (min-width: 768px) {
     margin: 0.5rem 0.7rem 0.7rem 0;
     border: 1px solid #000;
     border-radius: 10%;
-    padding: 0.25rem 0.5rem 0.13rem;
+    padding: 0.25rem 0.5rem 0.15rem;
     font-size: 1.1rem;
     text-decoration: none;
     letter-spacing: 0.05rem;
