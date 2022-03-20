@@ -3,7 +3,7 @@ import { useEffect, useState } from 'preact/hooks';
 
 import { debounceWithRequestAnimationFrame } from '../../utils/debounce';
 
-import ArrowButton from '../ArrowButton/ArrowButton';
+import IconArrowTop from '../IconArrowTop/IconArrowTop';
 
 import style from './BackToTop.css';
 
@@ -38,7 +38,9 @@ const BackToTop: FunctionComponent = () => {
   if (!isVisible) return null;
   return (
     <button className={style.backToTop} onClick={handleOnClick}>
-      <ArrowButton />
+      <div className={style.arrowButton}>
+        <IconArrowTop />
+      </div>
     </button>
   );
 };

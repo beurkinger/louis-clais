@@ -1,8 +1,39 @@
 .backToTop {
     position: fixed;
-    bottom: 1rem;
-    left: 50%;
+    bottom: 2rem;
+    left: 5rem;
     border: 0;
-    background: transparent;
-    transform: translateX(-50%);
+}
+
+@media 
+screen and (max-width: 768px) {
+    .backToTop {
+        left: 50%;
+        bottom: 1.5rem;
+        transform: translateX(-50%);
+    }
+}
+
+.arrowButton {
+    display: block;
+    border: 1px solid #000;
+    border-radius: 10%;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0.58rem;
+    font-weight: 500;
+    background: #FFF;
+    box-shadow: 0.15rem 0.15rem 0.0625rem 0px;
+}
+
+.arrowButton svg {
+    width: 100%;
+    height: auto;
+}
+
+.arrowButton:hover {
+    cursor: pointer;
+    color: inherit;
+    transform: translate(0.1rem, 0.1rem);
+    box-shadow: none;
 }
