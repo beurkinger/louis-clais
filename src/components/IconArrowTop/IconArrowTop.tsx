@@ -11,6 +11,7 @@ const IconArrowTop: FunctionComponent = () => (
     viewBox="0 0 1000 1000"
     enableBackground="new 0 0 1000 1000"
     xmlSpace="preserve"
+    fill="currentColor"
   >
     <g>
       <g transform="translate(0.000000,511.000000) scale(0.100000,-0.100000)">
