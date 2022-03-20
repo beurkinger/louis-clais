@@ -2,6 +2,7 @@ import { h, FunctionComponent } from 'preact';
 import { useState } from 'preact/hooks';
 
 import config from '../../config';
+import IconExtend from '../IconExpend/IconExpend';
 
 import style from './gallery.css';
 
@@ -65,12 +66,20 @@ const Gallery: FunctionComponent<Props> = ({
         />
       )}
       {images.length > 1 && (
-        <div
-          className={`${style.galleryCounter} ${
-            noCounterOverflow ? style.galleryCounterNoOverflow : ''
-          }`}
-        >
-          {currentImgIndex + 1} / {images.length}
+        <div className={`${style.galleryNav} ${noCounterOverflow ? style.galleryNavNoOverflow : ''
+          }`}>
+          <a
+            className={style.galleryExtend}
+            href={`${config.baseUrl}${currentImgPath}`}
+            target="_blank"
+          >
+            <IconExtend />
+          </a>
+          <div
+            className={style.galleryCounter}
+          >
+            {currentImgIndex + 1} / {images.length}
+          </div>
         </div>
       )}
     </div>
